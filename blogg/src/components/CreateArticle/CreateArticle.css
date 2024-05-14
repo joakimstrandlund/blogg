@@ -1,0 +1,9 @@
+.create-post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-post textarea {
+  resize: none;
+}
