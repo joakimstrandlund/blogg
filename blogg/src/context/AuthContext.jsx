@@ -8,7 +8,9 @@ export const AuthProvider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
+
   console.log(currentUser);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializerUser);
     return unsubscribe;

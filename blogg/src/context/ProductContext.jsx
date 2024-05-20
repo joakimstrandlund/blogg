@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import { AuthContext } from './AuthContext';
+import Article from '../components/Article/Article';
 
 // Byt ordet product till post eller addPost så du inte kopierar saga helt
 
@@ -59,5 +60,11 @@ export const ProductProvider = (props) => {
     setProducts(products);
   };
 
-  return <ProductContext.Provider value={{ products, addProduct, addComment }}>{props.children}</ProductContext.Provider>;
+  // du kan ta bort detta om du inte får till det.
+  const removeArticle = (id) => {
+    const updatedProducts = products.filter((product) => product.id !== id);
+    setProducts(updatedProducts);
+  };
+
+  return <ProductContext.Provider value={{ products, addProduct, addComment, removeArticle }}>{props.children}</ProductContext.Provider>;
 };

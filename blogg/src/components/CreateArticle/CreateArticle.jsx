@@ -9,7 +9,7 @@ const CreateArticle = (props) => {
 
   const addPost = () => {
     const id = Date.now();
-    addProduct(title, text);
+    addProduct(title, text); // om du lägger in ID blir det fucked då får du upp nummer
     setTitle('');
     setText('');
     props.hideCreatePost();
