@@ -19,10 +19,10 @@ const Article = (props) => {
   const [showCreateComment, setShowCreateComment] = useState(false);
 
   // Update local state when props change// chat gpt // du kan ta bort detta
-  useEffect(() => {
-    setEditTitle(props.title);
-    setEditText(props.text);
-  }, [props.title, props.text]);
+  // useEffect(() => {
+  //   setEditTitle(props.title);
+  //   setEditText(props.text);
+  // }, [props.title, props.text]);
 
   // const handleRemove = () => {
   //   console.log('Removing article with id:', props.id);
