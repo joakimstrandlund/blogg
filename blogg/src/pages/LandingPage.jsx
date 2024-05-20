@@ -25,8 +25,8 @@ const LandingPage = () => {
 
       {showCreatePost ? <CreateArticle hideCreatePost={hideCreatePost} /> : null}
 
-      {products.map((product) => {
-        return <Article key={product.id} author={product.author} title={product.title} text={product.text} />;
+      {products.map((product, index) => {
+        return <Article key={product.id} author={product.author} title={product.title} text={product.text} comments={product.comments} index={index} />;
       })}
     </div>
   );

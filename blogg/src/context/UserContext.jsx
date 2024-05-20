@@ -4,6 +4,7 @@ export const UserContext = createContext();
 
 export const UserProvider = (props) => {
   const [userName, setUserName] = useState('John Doe');
+  const lsIsloggedIn = localStorage.getItem('isLoggedIn');
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const login = () => {
@@ -16,5 +17,15 @@ export const UserProvider = (props) => {
     localStorage.removeItem('isLoggedIn');
   };
 
-  return <UserContext.Provider value={{ userName, setUserName, isLoggedIn, setIsLoggedIn, login, logout }}>{props.children}</UserContext.Provider>;
+  const useInApp = {
+    userName,
+    setUserName,
+    isLoggedIn,
+    login,
+    logout,
+  };
+
+  // return <UserContext.Provider value={{ userName, setUserName, isLoggedIn, setIsLoggedIn, login, logout }}>{props.children}</UserContext.Provider>;
+
+  return <UserContext.Provider value={useInApp}>{props.children}</UserContext.Provider>;
 };

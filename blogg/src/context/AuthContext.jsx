@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from '../Firebase/authFunctions';
 import { auth } from '../Firebase/firebaseConfig';
 import { createContext, useState, useEffect } from 'react';
 
@@ -6,13 +6,13 @@ export const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [UserLoggedIn, setUserLoggedIn] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  console.log(currentUser);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializerUser);
     return unsubscribe;
-  }, []);
+  }, [currentUser]); // kan vara så att du behöver ta på currentUser och gör den tom
 
   const initializerUser = (user) => {
     setLoading(true);
@@ -23,9 +23,10 @@ export const AuthProvider = (props) => {
       setCurrentUser(null);
       setUserLoggedIn(false);
     }
+    setLoading(false);
   };
 
-  const values = { currentUser, UserLoggedIn };
+  const values = { currentUser, userLoggedIn };
 
-  return <AuthContext.Provider value={{ values }}>{props.children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={values}>{!loading && props.children}</AuthContext.Provider>;
 };

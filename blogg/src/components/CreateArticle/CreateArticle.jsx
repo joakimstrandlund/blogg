@@ -8,30 +8,11 @@ const CreateArticle = (props) => {
   const { addProduct } = useContext(ProductContext);
 
   const addPost = () => {
+    const id = Date.now();
     addProduct(title, text);
-
     setTitle('');
     setText('');
     props.hideCreatePost();
-  };
-
-  //   const removeArticle = () => {
-  // const [editedText, setEditedText] = useState(text)
-
-  //   }
-
-  // Function to remove article
-  const removeArticle = () => {
-    // Assuming you have the ID of the article you want to remove
-    // You need to replace articleId with the actual ID of the article you want to remove
-    removeProduct(props);
-  };
-
-  const editArticle = () => {
-    // Here, you can navigate to a page where you can edit the article,
-    // or you can show a modal for editing, etc.
-    // For example, you can redirect to an edit page:
-    // history.push(`/edit-article/${articleId}`);
   };
 
   return (
@@ -40,9 +21,9 @@ const CreateArticle = (props) => {
       <textarea placeholder="Type post" rows={5} onChange={(e) => setText(e.target.value)} value={text}></textarea>
       <button onClick={addPost}>Post</button>
       {/* TEST  */}
-      <button onClick={removeArticle}>Remove</button>
+      {/* <button onClick={removeArticle}>Remove</button> Ta bort detta */}
       {/* test */}
-      <button onClick={editArticle}>Edit</button>
+      {/* <button onClick={editArticle}>Edit</button> ta bort detta */}
     </div>
   );
 };
