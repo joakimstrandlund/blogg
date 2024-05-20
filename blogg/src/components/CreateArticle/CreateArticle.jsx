@@ -1,15 +1,15 @@
 import './CreateArticle.css';
 import { useState, useContext } from 'react';
-import { ProductContext } from '../../context/ProductContext';
+import { ArticleContext } from '../../context/ArticleContext';
 
 const CreateArticle = (props) => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
-  const { addProduct } = useContext(ProductContext);
+  const { addArticle } = useContext(ArticleContext);
 
   const addPost = () => {
     const id = Date.now();
-    addProduct(title, text); // om du lägger in ID blir det fucked då får du upp nummer
+    addArticle(title, text, id); // om du lägger in ID blir det fucked då får du upp nummer
     setTitle('');
     setText('');
     props.hideCreatePost();

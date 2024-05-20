@@ -3,13 +3,13 @@ import { UserContext } from './UserContext';
 import { AuthContext } from './AuthContext';
 import Article from '../components/Article/Article';
 
-// Byt ordet product till post eller addPost så du inte kopierar saga helt
+// Byt ordet article till post eller addPost så du inte kopierar saga helt
 
-export const ProductContext = createContext();
+export const ArticleContext = createContext();
 
-export const ProductProvider = (props) => {
+export const ArticleProvider = (props) => {
   const { currentUser } = useContext(AuthContext);
-  const [products, setProducts] = useState([
+  const [articles, setArticles] = useState([
     {
       id: 1,
       author: 'Miss Li',
@@ -39,15 +39,15 @@ export const ProductProvider = (props) => {
     },
   ]);
 
-  const addProduct = (title, text) => {
-    const newProduct = {
+  const addArticle = (title, text) => {
+    const newArticle = {
       id: Math.random(),
       author: currentUser.email,
       title: title,
       text: text,
       comments: [],
     };
-    setProducts([newProduct, ...products]);
+    setArticles([newArticle, ...articles]);
   };
 
   const addComment = (comment, index) => {
@@ -55,16 +55,22 @@ export const ProductProvider = (props) => {
       author: currentUser.email,
       text: comment,
     };
-    const articles = products;
+    const articles = articles;
     articles[index].comments.push(newComment);
-    setProducts(products);
+    setArticles(articles);
   };
 
   // du kan ta bort detta om du inte får till det.
   const removeArticle = (id) => {
-    const updatedProducts = products.filter((product) => product.id !== id);
-    setProducts(updatedProducts);
+    const updatedArticles = articles.filter((article) => article.id !== id);
+    setArticles(updatedArticles);
   };
 
-  return <ProductContext.Provider value={{ products, addProduct, addComment, removeArticle }}>{props.children}</ProductContext.Provider>;
+  // kan ta bort om dej inte funkar
+  const editArticle = (id, updatedArticle) => {
+    const updatedArticles = articles.map((article) => (article.id === id ? { ...article, ...updatedArticle } : article));
+    setArticles(updatedArticles);
+  };
+
+  return <ArticleContext.Provider value={{ articles, addArticle, addComment, removeArticle, editArticle }}>{props.children}</ArticleContext.Provider>;
 };

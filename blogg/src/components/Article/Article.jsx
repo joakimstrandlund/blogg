@@ -1,11 +1,12 @@
 import './Article.css';
 import { useState, useContext, useEffect } from 'react';
-import { ProductContext } from '../../context/ProductContext';
+import { ArticleContext } from '../../context/ArticleContext';
 import { UserContext } from '../../context/UserContext';
 import { AuthContext } from '../../context/AuthContext';
+import { ArticleProvider } from '../../context/ArticleContext';
 
 const Article = (props) => {
-  const { removeArticle, addComment, editProduct } = useContext(ProductContext);
+  const { removeArticle, addComment, editArticle } = useContext(ArticleContext);
   const { currentUser } = useContext(AuthContext);
   const canEdit = currentUser.email === props.author;
   const canRemove = currentUser.email === props.author;
@@ -28,7 +29,7 @@ const Article = (props) => {
   //   removeArticle(props.id); // Ta bort inlägg med id
   // };
 
-  // const handleRemove = (id) => {
+  // const handleRemove = (currentUser) => {
   //   removeArticle((props) => props.id !== id);
   // };
 
@@ -36,6 +37,10 @@ const Article = (props) => {
     console.log('Removing article with id:', props.id);
     removeArticle(props.id);
   };
+
+  // const deletePost = (postId) => {
+  //   setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+  // };
 
   // const handleRemove = () => {
   //   if (window.confirm('Are you sure you want to delete this article?')) {
@@ -46,13 +51,14 @@ const Article = (props) => {
   const handleEdit = () => {
     // const newText = ('Edit your post:', props.text);
     // if (newText) {
-    //   editProduct(props.id, newText); // Redigera inlägg med id och nytt textinnehåll
+    //   editArticle(props.id, newText); // Redigera inlägg med id och nytt textinnehåll
     // }
     setEditMode(true);
   };
 
   const handleSave = () => {
-    editProduct(props.id, { title: editTitle, text: editText }); // Redigera inlägg med id och nytt textinnehåll
+    editArticle(props.id, { title: editTitle, text: editText }); // Redigera inlägg med id och nytt textinnehåll
+    console.log(handleSave);
     setEditMode(false);
   };
 
@@ -79,13 +85,14 @@ const Article = (props) => {
         <div>
           <h2>{props.title}</h2>
           <p>{props.text}</p>
-          {canEdit && <button onClick={handleEdit}>Edit</button>}
+          {canEdit && <button onClick={handleEdit}>Edit post</button>}
         </div>
       )}
-      {canRemove && <button onClick={handleRemove}>Remove</button>}
+      {canRemove && <button onClick={handleRemove}>Delate post</button>}
       {/* <button onClick={handleRemove}>Remove</button> */}
+      {/* {canRemove && <button onClick={() => handleRemove(props.id)}>Delete post</button>} */}
 
-      <h3>Comments</h3>
+      <h3>Comments {props.comments.length}</h3>
       <div className="comments">
         {props.comments.map((comment, i) => (
           <div key={i}>

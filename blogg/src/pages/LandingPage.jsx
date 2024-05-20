@@ -1,10 +1,10 @@
-import { ProductContext } from '../context/ProductContext';
+import { ArticleContext } from '../context/ArticleContext';
 import { useContext, useState } from 'react';
 import Article from '../components/Article/Article';
 import CreateArticle from '../components/CreateArticle/CreateArticle';
 
 const LandingPage = () => {
-  const { products } = useContext(ProductContext);
+  const { articles } = useContext(ArticleContext);
   const [showCreatePost, setShowCreatePost] = useState(false); // ändra till false
 
   const toggleShowCreatePost = () => {
@@ -25,8 +25,18 @@ const LandingPage = () => {
 
       {showCreatePost ? <CreateArticle hideCreatePost={hideCreatePost} /> : null}
 
-      {products.map((product, index) => {
-        return <Article key={product.id} author={product.author} title={product.title} text={product.text} comments={product.comments} index={index} />;
+      {articles.map((article, index) => {
+        return (
+          <Article
+            key={article.id}
+            author={article.author}
+            title={article.title}
+            text={article.text}
+            comments={article.comments}
+            index={index}
+            id={article.id}
+          />
+        );
       })}
     </div>
   );

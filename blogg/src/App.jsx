@@ -4,7 +4,7 @@ import InformationPage from './pages/InformationPage';
 import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
 import ProfilePage from './pages/ProfilePage';
-import { ProductProvider } from './context/ProductContext';
+import { ArticleProvider } from './context/ArticleContext';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoutes from './components/PrivatesRoutes/PrivateRoutes';
@@ -13,7 +13,7 @@ const App = () => {
   return (
     <div className="app">
       {' '}
-      <ProductProvider>
+      <ArticleProvider>
         {' '}
         <BrowserRouter>
           <NavBar />{' '}
@@ -32,7 +32,7 @@ const App = () => {
             </Route>
           </Routes>{' '}
         </BrowserRouter>{' '}
-      </ProductProvider>
+      </ArticleProvider>
     </div>
   );
 };
