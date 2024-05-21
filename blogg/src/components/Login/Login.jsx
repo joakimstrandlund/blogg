@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { signInUser } from '../../Firebase/authFunctions';
+import './Login.css';
 
 // const Login = () => {
 //   const { userLoggedIn } = useContext(AuthContext);
@@ -86,40 +87,44 @@ const Login = () => {
   };
 
   return (
-    <div>
-      {userLoggedIn && <Navigate to={'/'} replace={true} />}
+    <div className="container">
+      <div>
+        {userLoggedIn && <Navigate to={'/'} replace={true} />}
 
-      <h1>Welcome back</h1>
-      <form onSubmit={onSubmit}>
-        <label>Email</label>
-        <input
-          type="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          autoComplete="current-password"
-          required
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        {errorMessage && <span>{errorMessage}</span>}
-        <button type="submit" disabled={isSigningIn}>
-          Sign In
-        </button>
-      </form>
+        <h1 className="welcome">Welcome back friend </h1>
+        <form className="login" onSubmit={onSubmit}>
+          <label>Email</label>
+          <input
+            type="email"
+            autoComplete="email"
+            placeholder="Enter your email"
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            autoComplete="current-password"
+            placeholder="Enter your password"
+            required
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          {errorMessage && <span>{errorMessage}</span>}
+          <button type="submit" disabled={isSigningIn}>
+            Sign In
+          </button>
 
-      <p>
-        Don't have an account? <Link to={'/register'}>Sign Up</Link>
-      </p>
+          <p className="sign-up">
+            Don't have an account? <Link to={'/register'}> Sign Up</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

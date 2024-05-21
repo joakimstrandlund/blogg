@@ -3,6 +3,8 @@ import { Navigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { createUser } from '../../Firebase/authFunctions';
 
+import './Register.css';
+
 // const Register = () => {
 //   const { userLoggedIn } = useContext(AuthContext);
 //   const [email, setEmail] = useState('');
@@ -102,25 +104,28 @@ const Register = () => {
   };
 
   return (
-    <div>
-      {userLoggedIn && <Navigate to={'/'} replace={true} />}
-      <h1>Create a new account</h1>
-      <form onSubmit={onSubmit}>
-        <label>Email</label>
-        <input
-          type="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <div>
+    <div className="container-register">
+      <div>
+        {userLoggedIn && <Navigate to={'/'} replace={true} />}
+        <h1 className="create">Create a new account</h1>
+        <form className="register" onSubmit={onSubmit}>
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          {/* <div> */}
           <label>Password</label>
           <input
             disabled={isRegistering}
             type="password"
+            placeholder="Password"
             autoComplete="new-password"
             required
             value={password}
@@ -128,13 +133,14 @@ const Register = () => {
               setPassword(e.target.value);
             }}
           />
-        </div>
+          {/* </div> */}
 
-        <div>
+          {/* <div> */}
           <label>Confirm Password</label>
           <input
             disabled={isRegistering}
             type="password"
+            placeholder="Confirm password"
             autoComplete="off"
             required
             value={confirmPassword}
@@ -142,18 +148,19 @@ const Register = () => {
               setConfirmPassword(e.target.value);
             }}
           />
-        </div>
+          {/* </div> */}
 
-        {errorMessage && <span>{errorMessage}</span>}
+          {errorMessage && <span>{errorMessage}</span>}
 
-        <button type="submit" disabled={isRegistering}>
-          {isRegistering ? 'Signing Up...' : 'Sign Up'}
-        </button>
+          <button type="submit" disabled={isRegistering}>
+            {isRegistering ? 'Signing Up...' : 'Sign Up'}
+          </button>
 
-        <div>
-          Already have an account? <Link to={'/login'}>Log In</Link>
-        </div>
-      </form>
+          <div className="log-in">
+            Already have an account? <Link to={'/login'}>Log In</Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
