@@ -1,3 +1,7 @@
+body {
+  background-color: gray;
+}
+
 .Article {
   /* display: flex;
   align-items: center;
@@ -22,18 +26,30 @@
 .comments {
   /* display: flex;
   flex-direction: column; */
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid blue;
+
   background-color: #212121;
-  color: white;
+  color: rgb(255, 255, 255);
   box-sizing: border-box;
-  border: 10px rgb(117, 79, 9);
+  border: 10px rgb(248, 188, 77);
   /* border-radius: 8px; */
+  /* display: flex;
+  flex-direction: row; */
+  gap: 10px;
   border: white solid;
   /* padding-left: 20px; */
   font-size: 14px;
 }
 
-.edit-btn {
+/* .edit-btn {
 }
 
 .remove-btn {
+} */
+
+.author-info {
+  display: flex;
+  flex-direction: row;
 }
