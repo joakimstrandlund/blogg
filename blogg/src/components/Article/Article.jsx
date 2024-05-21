@@ -73,7 +73,9 @@ const Article = (props) => {
 
   return (
     <div className="Article">
-      <p>{props.author}</p>
+      <div className="author-info">
+        <p>{props.author}</p>
+      </div>
       {editMode ? (
         <div>
           <input type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />
@@ -85,29 +87,39 @@ const Article = (props) => {
         <div>
           <h2>{props.title}</h2>
           <p>{props.text}</p>
-          {canEdit && <button onClick={handleEdit}>Edit post</button>}
+          {canEdit && (
+            <button className="edit-btn" onClick={handleEdit}>
+              Edit post
+            </button>
+          )}
         </div>
       )}
-      {canRemove && <button onClick={handleRemove}>Delate post</button>}
+      {canRemove && (
+        <button className="remove-btn" onClick={handleRemove}>
+          {' '}
+          Delate post
+        </button>
+      )}
       {/* <button onClick={handleRemove}>Remove</button> */}
       {/* {canRemove && <button onClick={() => handleRemove(props.id)}>Delete post</button>} */}
-
-      <h3>Comments {props.comments.length}</h3>
-      <div className="comments">
-        {props.comments.map((comment, i) => (
-          <div key={i}>
-            <p>{comment.author}</p>
-            <p>{comment.text}</p>
-          </div>
-        ))}
-      </div>
-      <button onClick={toggleShowCreateComment}>Add comment</button>
-      {showCreateComment && (
-        <div>
-          <input type="text" onChange={(e) => setComment(e.target.value)} value={comment} />
-          <button onClick={handleAddComments}>Comment</button>
+      <div className="comment-box">
+        <h3>Comments {props.comments.length}</h3>
+        <div className="comments">
+          {props.comments.map((comment, i) => (
+            <div key={i}>
+              <p>{comment.author}</p>
+              <p>{comment.text}</p>
+            </div>
+          ))}
         </div>
-      )}
+        <button onClick={toggleShowCreateComment}>Add comment</button>
+        {showCreateComment && (
+          <div>
+            <input type="text" onChange={(e) => setComment(e.target.value)} value={comment} />
+            <button onClick={handleAddComments}>Comment</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
