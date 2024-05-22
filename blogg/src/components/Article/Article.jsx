@@ -72,9 +72,9 @@ const Article = (props) => {
   };
 
   return (
-    <div className="Article">
+    <div className="article">
       <div className="author-info">
-        <p>{props.author}</p>
+        <p className="author">{props.author}</p>
       </div>
       {editMode ? (
         <div>
@@ -85,7 +85,7 @@ const Article = (props) => {
         </div>
       ) : (
         <div>
-          <h2>{props.title}</h2>
+          <h2 className="title">{props.title}</h2>
           <p>{props.text}</p>
           {canEdit && (
             <button className="edit-btn" onClick={handleEdit}>
@@ -106,15 +106,17 @@ const Article = (props) => {
         <h3>Comments {props.comments.length}</h3>
         <div className="comments">
           {props.comments.map((comment, i) => (
-            <div key={i}>
-              <p>{comment.author}</p>
-              <p>{comment.text}</p>
+            <div className="comment" key={i}>
+              <p className="comment-author">{comment.author}</p>
+              <p className="comment-text">{comment.text}</p>
             </div>
           ))}
         </div>
-        <button onClick={toggleShowCreateComment}>Add comment</button>
+        <button className="add-comment-btn" onClick={toggleShowCreateComment}>
+          Add comment
+        </button>
         {showCreateComment && (
-          <div>
+          <div className="create-comment">
             <input type="text" onChange={(e) => setComment(e.target.value)} value={comment} />
             <button onClick={handleAddComments}>Comment</button>
           </div>

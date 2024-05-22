@@ -1,9 +1,19 @@
+body {
+  background-color: #212121;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
 .container-register {
   background-color: #212121;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 50px;
   padding-bottom: 30px;
+  background-color: #212121;
+  /* background-color: #d70707; */
 }
 
 .register {
@@ -35,15 +45,16 @@
 
 .register button {
   width: 100%;
-  background-color: orange;
+  background-color: #007bff;
   padding: 10px;
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  color: white;
 }
 
 .register button:hover {
-  background-color: rgb(214, 141, 5);
+  background-color: #0056b3;
 }
 
 .log-in {
@@ -54,7 +65,7 @@
 
 .log-in a {
   margin-left: 5px;
-  color: orange;
+  color: #007bff;
 }
 
 .create {

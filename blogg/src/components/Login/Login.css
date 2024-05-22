@@ -1,9 +1,17 @@
+body {
+  background-color: #212121;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
 .container {
   background-color: #212121;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 30px;
+  padding-top: 50px;
 }
 
 .login {
@@ -35,15 +43,16 @@
 
 .login button {
   width: 100%;
-  background-color: orange;
+  background-color: #007bff;
   padding: 10px;
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  color: white;
 }
 
 .login button:hover {
-  background-color: rgb(214, 141, 5);
+  background-color: #0056b3;
 }
 
 .welcome {
@@ -60,5 +69,5 @@
 
 .sign-up a {
   margin-left: 5px;
-  color: orange;
+  color: #007bff;
 }

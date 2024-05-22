@@ -1,55 +1,103 @@
 body {
-  background-color: gray;
-}
-
-.Article {
-  /* display: flex;
-  align-items: center;
-  flex-direction: column; */
-  background-color: #212121;
-  /* display: flex;
-  flex-direction: column;
-  margin-bottom: 20px; */
-  color: white;
-}
-
-.comment-box {
-  /* display: flex;
-  flex-direction: column; */
+  /* background-color: #212121; */
   background-color: #424242;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   color: white;
-  /* border-radius: 8px; */
-  /* padding-left: 20px; */
-  border: white solid;
 }
 
-.comments {
-  /* display: flex;
-  flex-direction: column; */
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid blue;
-
-  background-color: #212121;
-  color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  border: 10px rgb(248, 188, 77);
-  /* border-radius: 8px; */
-  /* display: flex;
-  flex-direction: row; */
-  gap: 10px;
-  border: white solid;
-  /* padding-left: 20px; */
-  font-size: 14px;
+.article {
+  background-color: #313131;
+  color: white;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Sätt en maxbredd för bättre läsbarhet */
 }
-
-/* .edit-btn {
-}
-git a
-.remove-btn {
-} */
 
 .author-info {
   display: flex;
   flex-direction: row;
+  /* margin-bottom: 10px; */
+}
+
+.author {
+  padding: 0px;
+  margin: 0px;
+}
+
+.comment-box {
+  background-color: #424242;
+  color: white;
+  /* border-radius: 8px; */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.comment {
+  background-color: #212121;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.comment-author {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.comment-text {
+  margin: 0;
+}
+
+.edit-btn,
+.remove-btn,
+.add-comment-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-btn:hover,
+.remove-btn:hover,
+.add-comment-btn:hover {
+  background-color: #0056b3;
+}
+
+.create-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-comment input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none; /* Ta bort den blå kant vid fokus */
+}
+
+.create-comment button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.create-comment button:hover {
+  background-color: #0056b3;
 }

@@ -5,6 +5,8 @@
   align-items: center;
   gap: 10%;
   background-color: #424242;
+  /* background-color: #212121; */
+
   padding: 20px;
 }
 
@@ -21,14 +23,27 @@
   height: auto;
 }
 
-.profile {
+/* .profile {
   color: white;
   text-decoration: none;
   font-size: 20px;
-}
+} */
 
 .user {
   display: flex;
   flex-direction: column;
   color: white;
+}
+
+.log-out-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.log-out-btn:hover {
+  background-color: #0056b3;
 }

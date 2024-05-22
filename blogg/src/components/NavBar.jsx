@@ -24,16 +24,21 @@ const NavBar = () => {
         <Link className="link" to="/InformationPage">
           Information
         </Link>
-      </div>
-      <Link className="profile" to="/ProfilePage">
-        Profile
-      </Link>
-      {/* <p>{currentUser && currentUser.email}</p>
+
+        <Link className="link" to="/ProfilePage">
+          Profile
+        </Link>
+        {/* <p>{currentUser && currentUser.email}</p>
       <button onClick={signInUser}>Log in</button> */}
+      </div>
 
       <div className="user">
         <p>{currentUser && currentUser.email}</p>
-        {userLoggedIn && <button onClick={signOutUser}>Log out</button>}
+        {userLoggedIn && (
+          <button className="log-out-btn" onClick={signOutUser}>
+            Log out
+          </button>
+        )}
 
         {/* <button onClick={signOutUser}>{userLoggedIn ? 'Log out' : 'Log in'}</button> // gör så att knappen ändras om du är inloggad eller inte */}
       </div>

@@ -20,8 +20,10 @@ const LandingPage = () => {
   };
 
   return (
-    <div>
-      <button onClick={toggleShowCreatePost}>{showCreatePost ? 'Cancel post' : 'Create post'}</button>
+    <div className="create-container">
+      <button className="create-post-btn" onClick={toggleShowCreatePost}>
+        {showCreatePost ? 'Cancel post' : 'Create post'}
+      </button>
 
       {showCreatePost ? <CreateArticle hideCreatePost={hideCreatePost} /> : null}
 

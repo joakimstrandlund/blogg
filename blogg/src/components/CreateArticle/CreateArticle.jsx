@@ -19,7 +19,9 @@ const CreateArticle = (props) => {
     <div className="create-post">
       <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} value={title} />
       <textarea placeholder="Type post" rows={5} onChange={(e) => setText(e.target.value)} value={text}></textarea>
-      <button onClick={addPost}>Post</button>
+      <button className="post-btn" onClick={addPost}>
+        Post
+      </button>
       {/* TEST  */}
       {/* <button onClick={removeArticle}>Remove</button> Ta bort detta */}
       {/* test */}
