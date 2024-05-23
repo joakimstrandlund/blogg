@@ -8,19 +8,31 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  width: 800px;
 }
 
-/* .create-container {
+.create-container {
   display: flex;
   flex-direction: column;
-} */
+  /* width: 500px; */
+}
 
 .create-post textarea {
   resize: none;
 }
 
-.create-post-btn,
+.create-post-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  align-self: center;
+  width: 840px;
+  border-radius: 4px;
+}
+
+/* .create-post-btn, */
 .post-btn {
   background-color: #007bff;
   color: white;
@@ -30,6 +42,7 @@
   cursor: pointer;
 }
 
-.create-post-btn:hover .post-btn:hover {
+.create-post-btn:hover,
+.post-btn:hover {
   background-color: #0056b3;
 }
