@@ -9,7 +9,7 @@ const CreateArticle = (props) => {
 
   const addPost = () => {
     const id = Date.now();
-    addArticle(title, text, id); // om du lägger in ID blir det fucked då får du upp nummer
+    addArticle(title, text, id);
     setTitle('');
     setText('');
     props.hideCreatePost();
@@ -22,10 +22,6 @@ const CreateArticle = (props) => {
       <button className="post-btn" onClick={addPost}>
         Post
       </button>
-      {/* TEST  */}
-      {/* <button onClick={removeArticle}>Remove</button> Ta bort detta */}
-      {/* test */}
-      {/* <button onClick={editArticle}>Edit</button> ta bort detta */}
     </div>
   );
 };

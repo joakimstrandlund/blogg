@@ -1,5 +1,4 @@
 body {
-  /* background-color: #212121; */
   background-color: #424242;
   font-family: Arial, sans-serif;
   margin: 0;
@@ -13,14 +12,12 @@ body {
   margin: 20px auto;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 800px;
 }
 
 .author-info {
   display: flex;
   flex-direction: row;
-  /* margin-bottom: 10px; */
 }
 
 .author {
@@ -31,7 +28,6 @@ body {
 .comment-box {
   background-color: #424242;
   color: white;
-  /* border-radius: 8px; */
   padding: 20px;
   margin-top: 20px;
   border-radius: 4px;
@@ -87,7 +83,7 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  outline: none; /* Ta bort den blå kant vid fokus */
+  outline: none;
 }
 
 .create-comment button {

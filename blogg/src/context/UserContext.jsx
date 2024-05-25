@@ -25,7 +25,5 @@ export const UserProvider = (props) => {
     logout,
   };
 
-  // return <UserContext.Provider value={{ userName, setUserName, isLoggedIn, setIsLoggedIn, login, logout }}>{props.children}</UserContext.Provider>;
-
   return <UserContext.Provider value={useInApp}>{props.children}</UserContext.Provider>;
 };

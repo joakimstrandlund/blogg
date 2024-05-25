@@ -18,41 +18,12 @@ const Article = (props) => {
 
   const [showCreateComment, setShowCreateComment] = useState(false);
 
-  // Update local state when props change// chat gpt // du kan ta bort detta
-  // useEffect(() => {
-  //   setEditTitle(props.title);
-  //   setEditText(props.text);
-  // }, [props.title, props.text]);
-
-  // const handleRemove = () => {
-  //   console.log('Removing article with id:', props.id);
-  //   removeArticle(props.id); // Ta bort inlägg med id
-  // };
-
-  // const handleRemove = (currentUser) => {
-  //   removeArticle((props) => props.id !== id);
-  // };
-
   const handleRemove = () => {
     console.log('Removing article with id:', props.id);
     removeArticle(props.id);
   };
 
-  // const deletePost = (postId) => {
-  //   setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
-  // };
-
-  // const handleRemove = () => {
-  //   if (window.confirm('Are you sure you want to delete this article?')) {
-  //     removeArticle(props.id);
-  //   }
-  // };
-
   const handleEdit = () => {
-    // const newText = ('Edit your post:', props.text);
-    // if (newText) {
-    //   editArticle(props.id, newText); // Redigera inlägg med id och nytt textinnehåll
-    // }
     setEditMode(true);
   };
 
@@ -100,8 +71,7 @@ const Article = (props) => {
           Delate post
         </button>
       )}
-      {/* <button onClick={handleRemove}>Remove</button> */}
-      {/* {canRemove && <button onClick={() => handleRemove(props.id)}>Delete post</button>} */}
+
       <div className="comment-box">
         <h3>Comments {props.comments.length}</h3>
         <div className="comments">
@@ -127,40 +97,3 @@ const Article = (props) => {
 };
 
 export default Article;
-
-//   return (
-//     <div className="Article">
-//       <p>{props.author}</p>
-//       {editMode ? <input type="text" value={props.title} /> : <h2>{props.title}</h2>}
-//       {/* <p>{ props.text}</p> */}
-//       {/* <h2>{props.title}</h2> */}
-//       {editMode ? <textarea value={props.text} /> : <p>{props.text}</p>}
-
-//       {canEdit ? <button onClick={handleEdit}>Edit</button> : null}
-//       {canRemove ? <button onClick={handleRemove}>Remove</button> : null}
-
-//       <h3>Comments</h3>
-
-//       <div className="comments">
-//         {props.comments.map((comment, i) => {
-//           return (
-//             <div key={i}>
-//               <p>{comment.author}</p>
-//               <p>{comment.text}</p>
-//             </div>
-//           );
-//         })}
-//       </div>
-//       <button onClick={toggleShowCreateComment}>Add comment</button>
-//       {showCreateComment ? (
-//         <div>
-//           <input type="text" onChange={(e) => setComment(e.target.value)} value={comment} /> <button onClick={handleAddComments}>Comment</button>
-//         </div>
-//       ) : (
-//         <></>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Article;

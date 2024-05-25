@@ -14,7 +14,7 @@ export const AuthProvider = (props) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializerUser);
     return unsubscribe;
-  }, [currentUser]); // kan vara så att du behöver ta på currentUser och gör den tom
+  }, [currentUser]);
 
   const initializerUser = (user) => {
     setLoading(true);

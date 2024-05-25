@@ -3,8 +3,6 @@ import { UserContext } from './UserContext';
 import { AuthContext } from './AuthContext';
 import Article from '../components/Article/Article';
 
-// Byt ordet article till post eller addPost så du inte kopierar saga helt
-
 export const ArticleContext = createContext();
 
 export const ArticleProvider = (props) => {
@@ -55,18 +53,16 @@ export const ArticleProvider = (props) => {
       author: currentUser.email,
       text: comment,
     };
-    // const articles = articles;
+
     articles[index].comments.push(newComment);
     setArticles(articles);
   };
 
-  // du kan ta bort detta om du inte får till det.
   const removeArticle = (id) => {
     const updatedArticles = articles.filter((article) => article.id !== id);
     setArticles(updatedArticles);
   };
 
-  // kan ta bort om dej inte funkar
   const editArticle = (id, updatedArticle) => {
     const updatedArticles = articles.map((article) => (article.id === id ? { ...article, ...updatedArticle } : article));
     setArticles(updatedArticles);

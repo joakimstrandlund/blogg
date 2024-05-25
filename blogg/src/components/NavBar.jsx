@@ -28,8 +28,6 @@ const NavBar = () => {
         <Link className="link" to="/ProfilePage">
           Profile
         </Link>
-        {/* <p>{currentUser && currentUser.email}</p>
-      <button onClick={signInUser}>Log in</button> */}
       </div>
 
       <div className="user">
@@ -39,8 +37,6 @@ const NavBar = () => {
             Log out
           </button>
         )}
-
-        {/* <button onClick={signOutUser}>{userLoggedIn ? 'Log out' : 'Log in'}</button> // gör så att knappen ändras om du är inloggad eller inte */}
       </div>
     </div>
   );
